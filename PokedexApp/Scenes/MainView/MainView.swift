@@ -12,20 +12,25 @@ let layout = [GridItem(.adaptive(minimum: 200, maximum: 500), spacing: 4, alignm
 
 struct MainView: View {
 	@State private var showingSheet = false
+	@State var pokemonCollection:[Pokemon] = allPokemeon
+
 
 	var body: some View {
-		VStack {
+		ScrollView{
+			VStack {
 			Button("Capture a New Pokemon"){
 				showingSheet.toggle()
 			}
 			.sheet(isPresented: $showingSheet) {
-				AddNewPokemonView()
+				AddNewPokemonView(isPresented: $showingSheet, pokemonCollection: $pokemonCollection)
 			}
 			LazyVGrid(columns: layout, spacing: 4){
-				ForEach(allPokemeon, id: \.self){ pokemon in
+				ForEach(pokemonCollection, id: \.self){ pokemon in
 					PokemonCellView(pokemon: pokemon )
 				}
 			}.frame(maxHeight: .infinity)
+		}
+	}.refreshable {
 		}
 	}
 

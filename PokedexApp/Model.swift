@@ -19,9 +19,9 @@ struct Pokemon: Identifiable, Hashable {
 	}
 }
 
-let squirtle = Pokemon(name: "Squirtle", description: "x", image: Image("squirtle"))
-let bulbasaur = Pokemon(name: "Bulbasaur", description: "x", image: Image("bulbasaur"))
-let charmander = Pokemon(name: "Charmander", description: "x", image: Image("charmander"))
+let squirtle = Pokemon(name: "Squirtle", description: "x", image: Image("Squirtle"))
+let bulbasaur = Pokemon(name: "Bulbasaur", description: "x", image: Image("Bulbasaur"))
+let charmander = Pokemon(name: "Charmander", description: "x", image: Image("Charmander"))
 
 
 

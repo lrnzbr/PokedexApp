@@ -12,7 +12,7 @@ struct PokemonCellView: View {
 	var body: some View {
 		HStack{
 			Text(pokemon.name)
-			Image(pokemon.name)
+			pokemon.image!
 				.resizable()
 				.scaledToFit()
 				.frame(width: 50, height: 50)
