@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		EB145FDB2993380600BE13F4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB145FDA2993380600BE13F4 /* MainView.swift */; };
 		EB145FDD2993383100BE13F4 /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB145FDC2993383100BE13F4 /* PokemonCellView.swift */; };
+		EB145FDF29934C1700BE13F4 /* AddNewPokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB145FDE29934C1700BE13F4 /* AddNewPokemonView.swift */; };
+		EB145FE12993517900BE13F4 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB145FE02993517900BE13F4 /* ImagePickerView.swift */; };
+		EB145FE3299352F600BE13F4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB145FE2299352F500BE13F4 /* Coordinator.swift */; };
 		EB55B659299330A600D02A4D /* PokedexAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55B658299330A600D02A4D /* PokedexAppApp.swift */; };
 		EB55B65B299330A600D02A4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55B65A299330A600D02A4D /* ContentView.swift */; };
 		EB55B65D299330A700D02A4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB55B65C299330A700D02A4D /* Assets.xcassets */; };
@@ -19,6 +22,9 @@
 /* Begin PBXFileReference section */
 		EB145FDA2993380600BE13F4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EB145FDC2993383100BE13F4 /* PokemonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellView.swift; sourceTree = "<group>"; };
+		EB145FDE29934C1700BE13F4 /* AddNewPokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPokemonView.swift; sourceTree = "<group>"; };
+		EB145FE02993517900BE13F4 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		EB145FE2299352F500BE13F4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EB55B655299330A600D02A4D /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB55B658299330A600D02A4D /* PokedexAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexAppApp.swift; sourceTree = "<group>"; };
 		EB55B65A299330A600D02A4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +57,9 @@
 			children = (
 				EB145FDA2993380600BE13F4 /* MainView.swift */,
 				EB145FDC2993383100BE13F4 /* PokemonCellView.swift */,
+				EB145FDE29934C1700BE13F4 /* AddNewPokemonView.swift */,
+				EB145FE02993517900BE13F4 /* ImagePickerView.swift */,
+				EB145FE2299352F500BE13F4 /* Coordinator.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -162,9 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB145FE3299352F600BE13F4 /* Coordinator.swift in Sources */,
 				EB55B667299330B400D02A4D /* Model.swift in Sources */,
 				EB145FDD2993383100BE13F4 /* PokemonCellView.swift in Sources */,
 				EB145FDB2993380600BE13F4 /* MainView.swift in Sources */,
+				EB145FDF29934C1700BE13F4 /* AddNewPokemonView.swift in Sources */,
+				EB145FE12993517900BE13F4 /* ImagePickerView.swift in Sources */,
 				EB55B65B299330A600D02A4D /* ContentView.swift in Sources */,
 				EB55B659299330A600D02A4D /* PokedexAppApp.swift in Sources */,
 			);
@@ -223,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -277,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -298,6 +310,7 @@
 				DEVELOPMENT_TEAM = L63W9QSW59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Pokedex would like access to your camera\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +340,7 @@
 				DEVELOPMENT_TEAM = L63W9QSW59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Pokedex would like access to your camera\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

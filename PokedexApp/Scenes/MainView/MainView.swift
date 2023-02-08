@@ -11,12 +11,22 @@ let layout = [GridItem(.adaptive(minimum: 200, maximum: 500), spacing: 4, alignm
 
 
 struct MainView: View {
-    var body: some View {
-		LazyVGrid(columns: layout, spacing: 4){
-			ForEach(allPokemeon, id: \.self){ pokemon in
-				PokemonCellView(pokemon: pokemon )
+	@State private var showingSheet = false
+
+	var body: some View {
+		VStack {
+			Button("Capture a New Pokemon"){
+				showingSheet.toggle()
 			}
-		}.frame(maxHeight: .infinity)
+			.sheet(isPresented: $showingSheet) {
+				AddNewPokemonView()
+			}
+			LazyVGrid(columns: layout, spacing: 4){
+				ForEach(allPokemeon, id: \.self){ pokemon in
+					PokemonCellView(pokemon: pokemon )
+				}
+			}.frame(maxHeight: .infinity)
+		}
 	}
 
 }
