@@ -7,37 +7,53 @@
 
 import SwiftUI
 
-let layout = [GridItem(.adaptive(minimum: 200, maximum: 500), spacing: 4, alignment: .center)]
-
+let layout = [GridItem(.adaptive(minimum: 150, maximum: 150), spacing: 4, alignment: .center)]
 
 struct MainView: View {
 	@State private var showingSheet = false
-	@State var pokemonCollection:[Pokemon] = allPokemeon
-
-
+	@State private var showDetailScreen = false
+	@State var pokemonCollection:[Pokemon] = allPokemon
+	@State var selectedPokemon: Pokemon = allPokemon[0]
 	var body: some View {
-		ScrollView{
-			VStack {
-			Button("Capture a New Pokemon"){
-				showingSheet.toggle()
-			}
-			.sheet(isPresented: $showingSheet) {
-				AddNewPokemonView(isPresented: $showingSheet, pokemonCollection: $pokemonCollection)
-			}
-			LazyVGrid(columns: layout, spacing: 4){
-				ForEach(pokemonCollection, id: \.self){ pokemon in
-					PokemonCellView(pokemon: pokemon )
+
+			NavigationView{
+				VStack {
+					Button("Capture a New Pokemon"){
+						showingSheet.toggle()
+					}
+					.sheet(isPresented: $showingSheet) {
+						AddNewPokemonView(isPresented: $showingSheet, pokemonCollection: $pokemonCollection)
+					}
+					ScrollView{
+					LazyVGrid(columns: layout, spacing: 4){
+						ForEach(pokemonCollection, id: \.self){ p in
+							Button("Pokemon"){
+								selectedPokemon = p
+								showDetailScreen = true
+							}
+							.fullScreenCover(isPresented: $showDetailScreen) {
+							} content: {
+								PokemonDetailView(showDetailScreen: $showDetailScreen, pokemon: selectedPokemon)
+							}
+							.buttonStyle(PokemonCellView(pokemon: p))
+						}
+					}
+
+				}.frame(maxHeight: .infinity)
 				}
-			}.frame(maxHeight: .infinity)
-		}
-	}.refreshable {
+			}
 		}
 	}
-
-}
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }
+}
+
+struct ListSelectionStyle: ButtonStyle {
+	func makeBody(configuration: Self.Configuration) -> some View {
+		configuration.label
+			.background(configuration.isPressed ? Color.gray : Color.clear)
+	}
 }

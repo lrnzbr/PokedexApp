@@ -7,33 +7,23 @@
 
 import SwiftUI
 
-struct PokemonCellView: View {
+struct PokemonCellView: ButtonStyle {
 	var pokemon: Pokemon!
-	var body: some View {
-		HStack{
-			Text(pokemon.name)
-			pokemon.image!
-				.resizable()
-				.scaledToFit()
-				.frame(width: 50, height: 50)
+	func makeBody(configuration: Self.Configuration) -> some View {
+		ZStack {
+			LinearGradient(colors: [colorForPoketype[pokemon.type1] ?? Color.red, colorForPoketype[pokemon.type2 ?? pokemon.type1] ?? Color.white], startPoint: .topLeading, endPoint: .bottomTrailing)
+			VStack{
 
+				pokemon.image!
+					.resizable()
+					.scaledToFit()
+					.frame(width: 50, height: 50)
+				Text(pokemon.name)
+			}
 		}
-		.padding()
-		.background(.red)
+		.frame(width: 150, height: 150)
 		.cornerRadius(15)
-		.shadow(color: .red, radius: 20, x: 10, y: 10)
+		.shadow(color: colorForPoketype[pokemon.type1]!, radius: 20, x: 10, y: 10)
 		.border(.black, width: 4)
-
-
-
-    }
-}
-
-struct PokemonCellView_Previews:
-	PreviewProvider {
-    static var previews: some View {
-		PokemonCellView(pokemon: allPokemeon[1])
-			.previewLayout(.sizeThatFits)
-			.padding()
-    }
+	}
 }
