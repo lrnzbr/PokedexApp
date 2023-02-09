@@ -20,7 +20,10 @@ struct MainView: View {
 				VStack {
 					Button("Capture a New Pokemon"){
 						showingSheet.toggle()
-					}
+					}.padding()
+						.background(Color(red: 0.04, green: 0.65, blue: 0.88))
+						.clipShape(Capsule())
+						.foregroundColor(.black)
 					.sheet(isPresented: $showingSheet) {
 						AddNewPokemonView(isPresented: $showingSheet, pokemonCollection: $pokemonCollection)
 					}

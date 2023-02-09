@@ -21,8 +21,8 @@ struct Pokemon: Identifiable, Hashable {
 	}
 }
 
-enum pokeType {
-	case bug, dark, dragon , electric, fairy, fighting, fire, flying, ghost, grass, ground, ice, normal, poison, psychic, rock, steel, water
+enum pokeType: String, CaseIterable {
+	case bug, dark, dragon , electric, fairy, fighting, fire, flying, ghost, grass, ground, ice, normal, poison, psychic, rock, steel, water, none
 }
 
 
@@ -45,16 +45,17 @@ let p13 = Pokemon(id: 13, name: "Weedle", description: "Beware of the sharp stin
 let p14 = Pokemon(id: 14, name: "Kakuna", description: "Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.", image: Image("014"), type1: .bug, type2: .poison )
 let p15 = Pokemon(id: 15, name: "Beedrill", description: "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.", image: Image("015"), type1: .bug, type2: .poison )
 
-let p16 = Pokemon(id: 16, name: "Pidgey", description: "TVery docile. If attacked, it will often kick up sand to protect itself rather than fight back.", image: Image("016"), type1: .normal, type2: .flying )
+let p16 = Pokemon(id: 16, name: "Pidgey", description: "Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.", image: Image("016"), type1: .normal, type2: .flying )
 let p17 = Pokemon(id: 17, name: "Pidgeotto", description: "This Pokémon is full of vitality. It constantly flies around its large territory in search of prey.", image: Image("017"), type1: .normal, type2: .flying )
 let p18 = Pokemon(id: 18, name: "Pidgeot", description: "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.", image: Image("018"), type1: .normal, type2: .flying )
 let p19 = Pokemon(id: 19, name: "Rattata", description: "Will chew on anything with its fangs. If you see one, you can be certain that 40 more live in the area.", image: Image("019"), type1: .normal )
 let p20 = Pokemon(id: 20, name: "Raticate", description: "Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.", image: Image("020"), type1: .normal)
 
+let p25 = Pokemon(id: 25, name: "Pikachu", description: "When it is angered, it immediately discharges the energy stored in the pouches in its cheeks.", image: Image("025"), type1: .electric)
 
 
 
-var allPokemon: [Pokemon] = [p1, p2,p3,p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20]
+var allPokemon: [Pokemon] = [p1, p2,p3,p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p25]
 
 
 var colorForPoketype: [pokeType: Color] = [
