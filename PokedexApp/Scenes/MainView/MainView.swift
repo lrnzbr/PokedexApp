@@ -13,7 +13,7 @@ struct MainView: View {
 	@State private var showingSheet = false
 	@State private var showDetailScreen = false
 	@State var pokemonCollection:[Pokemon] = allPokemon
-	@State var selectedPokemon: Pokemon = allPokemon[0]
+	@State var selectedPokemon: Pokemon = allPokemon.randomElement()!
 	var body: some View {
 
 			NavigationView{

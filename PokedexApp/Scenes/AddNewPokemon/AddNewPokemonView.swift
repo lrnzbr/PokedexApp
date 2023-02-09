@@ -92,17 +92,30 @@ struct AddNewPokemonView: View {
 						}
 						HStack{
 							Spacer()
-							TextField("Name", text: $name)
-								.padding()
-							TextField("ID Number", text: $idNumber)
-								.padding()
+							VStack{
+								Text("Name").font(.callout)
+								TextField("Enter Pokémon Name", text: $name)
+									.foregroundColor(.black)
+									.padding()
+							}
+							VStack{
+								Text("ID Number").font(.callout)
+								TextField("####", text: $idNumber)
+									.padding()
+									.foregroundColor(.black)
+
+							}
 							Spacer()
 						}
 						HStack {
+
 							Spacer()
-							TextField("Description", text: $description,  axis: .vertical)
-								.lineLimit(5...10)
-								.padding()
+							VStack{
+								Text("Description").font(.callout)
+								TextField("Description", text: $description,  axis: .vertical)
+									.lineLimit(5...10)
+									.padding()
+							}
 						}
 						Text("Primary Type")
 						Picker("Pick a primary type: ", selection: $firstSelectedItem) { // 3
@@ -136,6 +149,7 @@ struct AddNewPokemonView: View {
 						.sheet(isPresented: self.$isImagePickerDisplay) {
 							ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
 						}
+						Spacer()
 					}.alert(isPresented: $isShowingAlert) { // 4
 
 						Alert(
